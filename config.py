@@ -40,16 +40,19 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-    #if 'RDS_HOSTNAME' in os.environ:
-    #    NAME = os.environ.get('RDS_DB_NAME')
-    #    USER = os.environ.get('RDS_USERNAME')
-    #    PASSWORD = os.environ.get('RDS_PASSWORD')
-    #    HOST = os.environ.get('RDS_HOSTNAME')
-    #    PORT = os.environ.get('RDS_PORT')
-    #    SQLALCHEMY_DATABASE_URI = 'jdbc:postgresql://' + HOST + ':' + PORT + '/' + NAME
-        
+    #SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    #    'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+    if 'RDS_HOSTNAME' in os.environ:
+        NAME = os.environ.get('RDS_DB_NAME')
+        USER = os.environ.get('RDS_USERNAME')
+        PASSWORD = os.environ.get('RDS_PASSWORD')
+        HOST = os.environ.get('RDS_HOSTNAME')
+        PORT = os.environ.get('RDS_PORT')
+        DATABASE_URI = 'postgresql://' + USER + ':' + PASSWORD + '@' + HOST + ':' + PORT + '/' + NAME
+        SQLALCHEMY_DATABASE_URI = DATABASE_URL
+    else:
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+                     'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     
     @classmethod
     def init_app(cls, app):
