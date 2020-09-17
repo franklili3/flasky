@@ -66,15 +66,6 @@ def profile(length, profile_dir):
     from werkzeug.contrib.profiler import ProfilerMiddleware
     application.wsgi_app = ProfilerMiddleware(application.wsgi_app, restrictions=[length],
                                       profile_dir=profile_dir)
-    """Run deployment tasks."""
-    # migrate database to latest revision
-    upgrade()
-
-    # create or update user roles
-    Role.insert_roles()
-
-    # ensure all users are following themselves
-    User.add_self_follows()
     application.run()
 
 
@@ -89,3 +80,14 @@ def deploy():
 
     # ensure all users are following themselves
     User.add_self_follows()
+
+"""Run deployment tasks."""
+# migrate database to latest revision
+upgrade()
+
+# create or update user roles
+Role.insert_roles()
+
+# ensure all users are following themselves
+User.add_self_follows()
+application.run()

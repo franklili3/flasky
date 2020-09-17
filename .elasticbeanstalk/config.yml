@@ -5,8 +5,8 @@ branch-defaults:
     environment: Flasky1-env
 environment-defaults:
   Flasky1-env:
-    branch: null
-    repository: null
+    branch: smtp_qq
+    repository: origin
 global:
   application_name: flasky1
   default_ec2_keyname: awshongkong1
