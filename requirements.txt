@@ -1,3 +1,3 @@
-# this requirements file is used by Heroku
+# this requirements file is used by Docker
 # requirements for other configurations are located in the requirements subdirectory
--r requirements/heroku.txt
+-r requirements/docker.txt
