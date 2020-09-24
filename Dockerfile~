@@ -6,7 +6,7 @@ ENV FLASK_CONFIG production
 RUN adduser -D flasky
 USER flasky
 
-WORKDIR .
+WORKDIR ./dir
 
 COPY requirements requirements
 RUN python -m venv venv
