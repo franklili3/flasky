@@ -1,0 +1,7 @@
+FLASK_APP=application.py
+MAIL_USERNAME=348104201@qq.com
+MAIL_PASSWORD=pwfysgpdasuzbjed
+FLASKY_ADMIN=348104201@qq.com
+FLASK_CONFIG=docker
+SECRET_KEY=ad67612edd4d4b9fbd2c1e4cba2c2df2
+DATABASE_URL=mysql+pymysql://flasky:lili8393885^@dbserver/flasky

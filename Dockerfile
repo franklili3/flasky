@@ -7,6 +7,7 @@ RUN adduser -D flasky
 USER flasky
 
 WORKDIR /home/flasky
+
 COPY requirements requirements
 RUN python -m venv venv
 RUN venv/bin/pip install -r requirements/docker.txt
