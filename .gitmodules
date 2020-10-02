@@ -1,0 +1,3 @@
+[submodule "docker-mysql-utf8mb4"]
+	path = docker-mysql-utf8mb4
+	url = https://github.com/guillaumeprevost/docker-mysql-utf8mb4.git
