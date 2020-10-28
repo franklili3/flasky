@@ -14,7 +14,7 @@ RUN venv/bin/pip install -r requirements/docker.txt
 
 COPY app app
 COPY migrations migrations
-COPY flasky.py config.py boot_flasky.sh data-dev_sqlite ./
+COPY flasky.py config.py boot_flasky.sh data-dev.sqlite ./
 
 # run-time configuration
 EXPOSE 5000
